@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Cloud traffic (MQTT, Firebase) is always TLS. Cleartext is permitted ONLY because the boards'
+  local API (http://192.168.x.x/api/...) is plain HTTP on the home network, and Android cannot
+  whitelist "any private IP address". Every local request carries the per-home API key and the
+  Wi-Fi link itself is WPA2/WPA3-encrypted. Only the system certificate store is trusted
+  (no user-installed CAs), so a user-installed proxy certificate cannot read TLS traffic.
+-->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="true">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+</network-security-config>
