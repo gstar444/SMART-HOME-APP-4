@@ -106,7 +106,7 @@ class _SettingsPageState extends ConsumerState<SettingsPage> {
     var s = _collect();
     if (s.mqttHost.isNotEmpty && !s.hasHomeKeys) s = s.withHomeKeys();
     _orig = s;
-    await ref.read(settingsProvider.notifier).update(s);
+    await ref.read(settingsProvider.notifier).saveSettings(s);
     final fb = ref.read(firebaseProvider);
     if (fb != null) {
       fb.saveRooms(s.homeId, s.roomNames).catchError((Object _) {}); // best effort: rooms follow the user to other phones

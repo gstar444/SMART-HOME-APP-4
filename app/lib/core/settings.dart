@@ -194,7 +194,7 @@ class SettingsNotifier extends AsyncNotifier<AppSettings> {
     return s;
   }
 
-  Future<void> update(AppSettings s) async {
+  Future<void> saveSettings(AppSettings s) async {
     state = AsyncData(s);
     await _store.save(s);
   }
@@ -204,7 +204,7 @@ class SettingsNotifier extends AsyncNotifier<AppSettings> {
     final cur = state.valueOrNull ?? await future;
     if (cur.hasHomeKeys && cur.homeId.isNotEmpty) return cur;
     final next = cur.withHomeKeys();
-    await update(next);
+    await saveSettings(next);
     return next;
   }
 }
