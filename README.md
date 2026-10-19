@@ -347,3 +347,4 @@ Gradle cache wala `.aar` error aaye: VS Code band karein, `android` folder me `g
 
 Phone ko ghar ke LAN se private VPN (jaise Tailscale subnet routing) ke zariye jodein.
 ESP32 ka HTTP port seedha internet par kabhi na kholein; local network par bhi `API_KEY` lagana behtar hai.
+# SMART-HOME-APP-5
